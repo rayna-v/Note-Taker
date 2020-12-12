@@ -15,12 +15,23 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// console.log(typeof (db))
+// const newNotes = JSON.parse(db);
+// console.log(typeof (newNotes))
 
-const newNotes = [];
-
-function writeToFile(fileName, newNotes) {
-    let fileContent = render(newNotes);
-    fs.writeFile(db, fileContent, (err) => {
+// const renderNotes = () => {
+//     fs.readFile('./db/db.json', 'utf8', (err, data) => {
+//         if (err) console.log(err);
+//         // const newNotes = 
+//         for (x in data) {
+//             console.log(x);
+//         }
+//     })
+// }
+// renderNotes();
+function writeToFile(newNotes) {
+    // let fileContent = render(newNotes);
+    fs.writeFile('./db/db.json', newNotes, (err) => {
         if (err) throw err;
         console.log("Success")
     })
@@ -47,9 +58,9 @@ app.post("/api/notes", (req, res) => {
     console.log(newNote);
     newNotes.push(newNote);
     console.log(newNotes);
+    writeToFile(JSON.stringify(newNotes));
     res.json(newNotes);
-    const fileName = `db.json`;
-    writeToFile(fileName, newNotes)
+
 });
 
 
