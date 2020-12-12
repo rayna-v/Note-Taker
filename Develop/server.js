@@ -29,25 +29,13 @@ app.get('/api/notes', (req, res) => {
         const parsed = JSON.parse(data);
         res.send(parsed);
     })
-    // res.json(db);
 });
 
 
 app.post("/api/notes", (req, res) => {
 
-    // req.body.id =
-
-    //     console.log(newTable);
-
-    // if (tables.length < 5) {
-    //     tables.push(newTable);
-    //     res.json(newTable);
-    // } else {
-    //     waitlist.push(newTable)
-    //     res.json(waitlist)
-    // }
-
-
+    const newNote = req.body;
+    console.log(newNote)
 });
 
 
