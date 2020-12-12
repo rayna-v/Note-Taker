@@ -23,7 +23,7 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.
 
 app.get('/api/notes', (req, res) => {
     console.log(db);
-    fs.readFile("./db/db.json", 'UTF-8', (err, data) => {
+    fs.readFile("./db/db.json", 'utf8', (err, data) => {
         if (err) console.log(err);
         console.log(data);
         const parsed = JSON.parse(data);
