@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -40,6 +42,11 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    console.log("Error: " + response.statusText)
   });
 
 const deleteNote = (id) =>
@@ -54,8 +61,8 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   if (activeNote.id) {
-    noteTitle.setAttribute('readonly', true);
-    noteText.setAttribute('readonly', true);
+    // noteTitle.setAttribute('readonly', true);
+    // noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.title;
   } else {
@@ -118,6 +125,7 @@ const handleRenderSaveBtn = () => {
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
+    console.log('success')
     noteList.forEach((el) => (el.innerHTML = ''));
   }
 
