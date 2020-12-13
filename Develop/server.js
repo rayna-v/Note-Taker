@@ -3,11 +3,13 @@ const path = require('path');
 const db = require('./db/db.json');
 const fs = require('fs');
 const { json } = require('express');
+const cuid = require('cuid');
 // const outputPath = path.join(db_DIR, 'db.json')
 // const render = require("./public/assets/js/index");
 
+const newNotes = [];
 // Sets up the Express App
-
+// console.log(cuid())
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -53,7 +55,8 @@ app.get('/api/notes', (req, res) => {
 
 
 app.post("/api/notes", (req, res) => {
-
+    req.body.id = cuid();
+    console.log(req.body.id);
     const newNote = req.body;
     console.log(newNote);
     newNotes.push(newNote);
@@ -61,7 +64,10 @@ app.post("/api/notes", (req, res) => {
     writeToFile(JSON.stringify(newNotes));
     res.json(newNotes);
 
+
+
+    app.delete(`/api/notes/${req.body.id}`, (req, res) => {
+        res.json("Deleting")
+    })
 });
-
-
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
