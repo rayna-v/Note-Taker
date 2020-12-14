@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // array of objects containing notes from json file
-const newNotes = db;
+let newNotes = db;
 
 // writes the notes to the db.json file
 function writeToFile(newNotes) {
@@ -50,7 +50,7 @@ app.get('/api/notes', (req, res) => {
     })
 });
 
-// UPDATE 
+// UPDATE **not complete**
 // function to update notes
 // app.put(`/api/notes/:id`, (req, res) => {
 
@@ -62,15 +62,15 @@ app.get('/api/notes', (req, res) => {
 app.delete(`/api/notes/:id`, (req, res) => {
     console.log("deleting");
     fs.readFile("./db/db.json", 'utf8', (err, data) => {
-        let notDeleted = JSON.parse(data).filter((val) => {
+        newNotes = JSON.parse(data).filter((val) => {
             console.log(`Request ID: ` + req.params.id + `|| Note ID: ` + val.id)
             return val.id !== req.params.id;
         })
         if (err) console.log(err);
-        res.send(notDeleted);
-        writeToFile(JSON.stringify(notDeleted));
+        res.send(newNotes);
+        writeToFile(JSON.stringify(newNotes));
     })
-
+    console.log()
 })
 
 // function to bind/listen the connections on local host and port

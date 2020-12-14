@@ -10,11 +10,16 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Clicker+Script&family=Englebert&family=Fredericka+the+Great&family=Viaoda+Libre&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Note Taker
+    <a class="navbar-brand" href="/" style="font-family: 'Fredericka the Great', cursive; font-size: 30px;">Note Taker
     </a>
     <div class="icons">
       <i class="fas fa-save text-light save-note"></i>
@@ -24,14 +29,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-4 list-container">
-        <div class="card">
+        <div class="card" style="font-family: 'Aref Ruqaa', serif; font-size: 22px;">
           <ul class="list-group">
           </ul>
         </div>
       </div>
-      <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+      <div class="col-8 write-notes">
+        <input class="note-title" style="font-family: 'Englebert', sans-serif;" placeholder=" Note Title" maxlength="28"
+          type="text">
+        <textarea class="note-textarea" style="font-family: 'Englebert', sans-serif; font-size: 30px"
+          placeholder="Note Text"></textarea>
       </div>
     </div>
   </div>
