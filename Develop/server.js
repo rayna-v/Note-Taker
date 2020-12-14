@@ -39,7 +39,7 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.put(`/api/notes/:id`, (req, res) => {
-    //     res.json(res);
+
     console.log("updating note")
 });
 app.post("/api/notes", (req, res) => {
@@ -54,6 +54,22 @@ app.post("/api/notes", (req, res) => {
 });
 
 app.delete(`/api/notes/:id`, (req, res) => {
-    console.log("deleting")
+    console.log("deleting");
+    fs.readFile("./db/db.json", 'utf8', (err, data) => {
+        // console.log(req.params.id)
+        let notDeleted = JSON.parse(data).filter((val) => {
+
+            // console.log('val.id: ' + );
+            console.log(`Request ID: ` + req.params.id + `|| Note ID: ` + val.id)
+            return val.id !== req.params.id;
+
+        })
+        // const parsed = JSON.parse(notDeleted);
+        if (err) console.log(err);
+        console.log(notDeleted)
+        res.send(notDeleted);
+        writeToFile(JSON.stringify(notDeleted));
+    })
+
 })
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
