@@ -10,7 +10,7 @@ To use, simply click the live URL (below) which will take you to the landing pag
 I was given front-end code and given the task to create the backend that would allow users to write and save notes. The application is supposed to use Express.js and retrieve data from a JSON file. 
 
 ## Mock-Up
-![Note-Taker](https://github.com/rayna-v/Note-Taker/blob/main/Develop/public/assets/media/Note-Taker.gif)
+![Note-Taker](https://github.com/rayna-v/Note-Taker/blob/main/public/assets/media/Note-Taker.gif)
 
 ## Deployment
 * Link to [GitHub Repository](https://github.com/rayna-v/Note-Taker)
