@@ -14,7 +14,6 @@ I was given front-end code and given the task to create the backend that would a
 
 ## Deployment
 * Link to [GitHub Repository](https://github.com/rayna-v/Note-Taker)
-* Link to [GitHub Live URL]( https://rayna-v.github.io/Note-Taker/)
 * Link to [Heroku Live URL](https://git.heroku.com/fast-castle-54870.git)
 
 ## How to Report Issues
