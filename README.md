@@ -14,7 +14,7 @@ I was given front-end code and given the task to create the backend that would a
 
 ## Deployment
 * Link to [GitHub Repository](https://github.com/rayna-v/Note-Taker)
-* Link to [Heroku Live URL](https://git.heroku.com/fast-castle-54870.git)
+* Link to [Heroku Live URL](https://cryptic-refuge-07933.herokuapp.com/)
 
 ## How to Report Issues
 Please email me with any issues at raveuleman@gmail.com
